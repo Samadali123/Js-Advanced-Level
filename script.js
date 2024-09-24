@@ -18,7 +18,7 @@
 //17:  closures
 //18: localstorage vs session storage
 //19: cookies and sessions
-
+//20: oops in javaScript
 
 //1: higher order funtions : higher order functions are the functions which accepts a function in  a paramter or returrn a fucntion inside a fucntion or both  that function are called as a higher order functions in javascript..
 
@@ -554,3 +554,290 @@
 
 
 // * cookies and session:
+
+// oops in javaScript:
+// class and objects
+// we have 4 pillars in oops abstraction, encapsulation,inhetitance,polymorphism
+
+// class : class is a blueprint of object and object is a instance of the class.
+
+// basic class and object
+// older version
+// es5 version
+
+// function printing(name,age){
+//       this.name = name;
+//       this.age = age
+
+//       this.greet = function(){
+//             console.log(`Hello ${this.name}`)
+//       }
+// }
+// const ans = new printing("Syed Samad Ali",21)
+// console.log(ans)
+// console.log(ans.greet())
+
+// modern after es6 version
+
+// class printing{
+//       constructor(name,age){
+//             this.name = name
+//             this.age = age
+//             console.log(`your name is ${name} and you're ${age} older`)
+//       }
+
+//       greet(){
+//             console.log(`hello ${this.name}`)
+//       }
+// }
+// const ans1 = new printing("Samad",21);
+// console.log
+// (ans1.greet())
+
+// Oops in js
+// abstraction : hiding data for user show only relvent data
+// encapsulation : make private variables and have controlled over them make use them public with getters ans setters public methods
+// inheritance : inherit propeties and methods from parent classes to child classes
+// polymorphism : use one fucntion with same and different different purposes
+
+
+// abstraction
+// older method
+// function person(age,name){
+//       // private variables clsoures
+//       let _age = age;
+//       let _name = name;
+
+//        // public method
+//        this.getname = function(){
+//             return _name
+//        }
+
+//        //public method
+//        this.getage = function(){
+//             return _age
+//        }
+
+//        //private method hide implementation  logic 
+//        function _isAdult(){
+//              return age>=18;
+//        }
+
+//        // public method uses private method
+//        this.canVote = function(){
+//             return _isAdult() ? "Yes":"No"
+//        }
+      
+// }
+
+// const person1 = new person("samad", 21);
+// console.log(person1)
+// console.log(person1.getname())
+// console.log(person1.getage())
+// console.log(person1.canVote())
+// console.log(person1._isAdult()) you can't access because that is a private method
+
+
+// newer version es6 after 
+// class Person {
+//       // Private variables
+//       #age;
+    
+//       constructor(name, age) {
+//         this.name = name;
+//         this.#age = age;
+//       }
+    
+//       // Public method
+//       getname() {
+//         console.log(this.name);
+//       }
+    
+//       // Public method
+//       getage() {
+//         console.log(this.#age);
+//       }
+    
+//       // Private method
+//       #isAdult() {
+//         return this.#age >= 18;
+//       }
+    
+//       // Public method accessing private method
+//       canVote() {
+//         return this.#isAdult() ? "Yes, you can vote." : "Not eligible to vote, you are a child.";
+//       }
+//     }
+    
+//     const ans = new Person("Samad", 21);
+//     console.log(ans);              
+//     ans.getname();               
+//     ans.getage();                   
+//     console.log(ans.canVote());     
+    
+
+//Encapsulation ii JavaScript World
+
+//  class BankAccount{
+//       // private variable
+//       #balance;
+//       constructor(initialbalance){
+//            this.#balance = initialbalance;
+//       }
+
+//       // public method 
+//       depositMoney(amount){
+//           this.#balance += amount;
+//            console.log(`you deposit ${amount} and your total amout is ${this.#balance}`)
+//       }
+
+//       // public method
+//       creditMoney(amount){
+//          this.#balance = this.#balance - amount;
+//          console.log(`you credit ${amount} and remaining amount is ${this.#balance}`)
+//       }
+
+//       // public
+//       getBalance(){
+//             let  cbal = this.#balance
+//             console.log(`Current Balance is  ${cbal}`)
+//       }
+//  }
+//  const ans = new BankAccount(100);
+//  console.log(ans)
+//  ans.depositMoney(200);
+//  ans.creditMoney(100);
+//  ans.getBalance();
+
+
+// 2 eg
+
+// class getdetails{
+//            #name
+//          constructor(name){
+//                     this.#name = name
+//          }
+          
+//          getname(){
+//                  console.log(this.#name)
+//          }
+
+//          setname(name){
+//                this.#name = name;
+//                console.log(this.#name)
+//          }
+
+// }
+
+// const ans =  new getdetails("samad");
+// console.log(ans)
+// ans.getname()
+// ans.setname("syed samad ali ")
+
+
+//Inheritance in js world
+
+//superclass
+// class Animal{
+
+//       constructor(voice){
+//             this.name = voice
+//       }
+       
+//       speak(){
+//             console.log(`speaking ${this.voice}`)
+//       }
+//       printing(){
+//             console.log("printing works fine.")
+//       }
+// }
+
+// //subclass
+
+// class dog extends Animal{
+//        constructor(voice){
+//             super(voice)
+//        }
+// }
+
+
+// const animal= new Animal("meooo")
+// console.log(animal)
+// const dogs  = new dog("moisee")
+// dogs.printing()
+
+// super se parent class ke constructor ko child class ke constructructor me call krskte hai or parent class har public cheez child class use krskit hai easily.
+
+
+// class drivingCar {
+//       constructor(name){
+//             this.name = name;
+//       }
+
+//       drive(){
+//             console.log(`driving ${this.name} car`)
+//       }
+// }
+
+
+// class supercar extends drivingCar{
+//       constructor(name){
+//             super(name)
+//       }
+// }
+
+// const nano = new drivingCar("nano")
+// console.log(nano)
+// nano.drive()
+// const  ferrari = new supercar("ferrari")
+// console.log(ferrari)
+// ferrari.drive()
+
+
+// ingeritance using prototype
+
+
+// function printname(name){
+//       return this.name = name;
+// }
+
+// printname.prototype.sayHello = function(){
+//     return  `Hello ${this.name}`
+// }
+
+// printname.prototype.age = 21;
+
+// const ans =  new printname("samad")
+// // console.log(ans )
+// // console.log(ans.sayHello())
+// console.log(ans.age)
+
+
+
+// let person1 = {
+//       name : "samad",
+//       age :21,
+//       student : true
+// }
+
+// let person2 = {
+//       badmosh : true
+// }
+
+// Object.setPrototypeOf(person2,person1)
+// // console.log(person2.student ? "yes" : "No")
+
+
+let  human = {
+      live : true,
+      walk : true
+}
+
+let me  ={
+      mad : true
+}
+
+
+me.__proto = human;
+
+
