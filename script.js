@@ -828,16 +828,224 @@
 // // console.log(person2.student ? "yes" : "No")
 
 
-let  human = {
-      live : true,
-      walk : true
+// let  human = {
+//       live : true,
+//       walk : true
+// }
+
+// let me  ={
+//       mad : true
+// }
+// me.__proto = human;
+
+
+// types of inheritance 
+// single : child class inherits only one parent class
+// class Animal {
+//       constructor(voice) {
+//           this.voice = voice; // Assign the voice property
+//           console.log(this.voice); // Log the voice property
+//       }
+      
+//       walk() {
+//           console.log(`${this.voice} can walk`);
+//       }
+//   }
+  
+//   class Dog extends Animal {
+//       constructor(voice) {
+//           super(voice); // Call the parent class's constructor with voice
+//       }
+//   }
+  
+//   // Create an instance of Animal
+//   const a1 = new Animal("mouseeee");
+//   console.log(a1); 
+  
+//   // Create an instance of Dog
+//   const a2 = new Dog("liiiiiiiiiiion");
+//   console.log(a2); 
+  
+ 
+
+// multiple :  does not support directly but  it means inheritinh propeties and method from differnt mltiple clases in one class we can do that using mixins in js
+
+// const CanSwim = {
+//       swim() {
+//           console.log(`${this.name} can swim`);
+//       }
+//   };
+  
+//   const CanFly = {
+//       fly() {
+//           console.log(`${this.name} can fly`);
+//       }
+//   };
+
+//   // Base class for animal
+//   class Animal {
+//       constructor(name) {
+//           this.name = name;
+//       }
+  
+//       speak() {
+//           console.log(`${this.name} makes a sound`);
+//       }
+//   }
+
+//   // Extending the Animal class to create a Duck class
+// class Duck extends Animal {
+//       constructor(name) {
+//           super(name); 
+//       }
+//   }
+  
+
+// // Adding mixins to Duck class
+// Object.assign(Duck.prototype, CanSwim, CanFly);
+// // Creating an instance of Duck
+// const duck = new Duck("Daisy");
+// duck.speak(); 
+// duck.swim();
+// duck.fly();  
+
+
+// multiple inheritance : parent class ko inherit kre child class or use child class ko inherit kre uski chikd class
+
+// class grandFather {
+//        constructor(name){
+//             this.name = name
+//        }
+
+//        angry(){
+//              console.log(`${this.name} is Angry`)
+//        }
+// }
+
+// class father extends grandFather{
+//       constructor(name){
+//             super(name)
+//             this.name = name;
+//       }
+// }
+
+// class son extends father{
+//       constructor(name){
+//             super(name)
+//             this.name = name
+//       }
+// }
+
+
+// const gf = new grandFather("zahid ali")
+// // console.log(gf)
+// const f = new father("shakir ali")
+// // console.log(f)
+// const s = new son("syed samad ali")
+// s.angry()
+
+// heirarichal inheritance : In hierarchical inheritance, multiple classes inherit from a single parent class.
+
+
+// class gff {
+//            constructor(name,surname){
+//             this.name = name;
+//             this.surname = surname;
+//             console.log(`name is ${this.name} and surname is ${this.surname}`)
+//            }
+           
+// }
+
+// class ff extends gff{
+//            constructor(name,surname){
+//             super(name,surname)
+//             console.log("use gf class successfully.")
+//            }
+// }
+
+// class ss extends gff{
+//       constructor(name,surname){
+//             super(name,surname)
+//       }
+// }
+
+// const gf = new gff("samad", "ali");
+// const f = new ff("sdfss", "ali")
+// const s = new ss("sdfsfgff", "ali")
+
+
+// hynrid inheritance : Hybrid inheritance is a combination of two or more types of inheritance. This can be seen in complex applications where a class might inherit from multiple sources, including both classes and objects.
+
+// const CanSwim = {
+//       swim() {
+//           console.log("Can swim");
+//       }
+//   };
+  
+//   class Animal {
+//       speak() {
+//           console.log("Animal speaks");
+//       }
+//   }
+  
+//   class Dog extends Animal {
+//       bark() {
+//           console.log("Dog barks");
+//       }
+//   }
+  
+//   class Frog extends Animal {
+//       jump() {
+//           console.log("Frog jumps");
+//       }
+//   }
+  
+//   Object.assign(Dog.prototype, CanSwim);
+  
+//   const dog = new Dog();
+//   dog.speak(); 
+//   dog.bark(); 
+//   dog.swim();  
+  
+//   const frog = new Frog();
+//   frog.speak(); 
+//   frog.jump();  
+  
+
+
+// Polymorphism is an OOP concept that allows objects of different types to respond to the same method in different ways. In JavaScript, there are two main types of polymorphism :
+
+// compile time polymorphism(method overloading) : 
+//JavaScript doesn't support true method overloading like some other languages. However, you can mimic it by checking the number or type of arguments passed to a function.
+
+
+// function greet(name, age){
+//         if(name){
+//             console.log(`Hello ${name}`)
+//         }
+//         else if(age){console.log(`Hello your age is ${age}`)}
+//         else{console.log(`hello ${name} and age is ${age}`)}
+// }
+// greet("samad")
+// greet(21)
+// greet("syed samad ali", 21)
+
+
+// run-time-polymorphism (method overriding) : A subclass provides a specific implementation of a method that is already defined in its parent class.
+
+
+class Animal {
+      speak(){
+            console.log(`Animal Speaks`)
+      }
 }
 
-let me  ={
-      mad : true
+class Dog extends  Animal{
+         speak(){
+            console.log(`Dog Speaks`)
+         }
 }
-
-
-me.__proto = human;
-
-
+const animal = new Animal("mouseeeee")
+animal.speak()
+const dog =  new Dog("bou bou")
+dog.speak()
